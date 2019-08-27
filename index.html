@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Electron.JS APP</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container">
+    <h1>Electron.JS</h1>
+
+    <div class="row">
+        <div class="form-group col-3">
+            <label for="celsius">&#8451;</label>
+            <input type="number" class="form-control" id="celsius" onkeyup="celToFa()">
+        </div>
+
+        <div class="form-group col-3">
+            <label for="fahrenheit">&#8457;</label>
+            <input type="number" class="form-control" id="fahrenheit" onkeyup="faToCel()">
+        </div>
+    </div>
+</div>
+
+<script>
+    require('./render.js');
+
+    function celToFa() {
+        let cel = document.getElementById('celsius').value;
+        let fa = (cel * 9/5) + 32;
+
+        document.getElementById('fahrenheit').value = fa;
+    }
+
+    function faToCel() {
+        let fa = document.getElementById('fahrenheit').value;
+        let cel = (fa - 32) * 5/9;
+
+        document.getElementById('celsius').value = cel;
+    }
+</script>
+</body>
+</html>
